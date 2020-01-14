@@ -1,0 +1,19 @@
+html
+    head
+        title #{$title}
+        block scripts
+            link(rel="stylesheet", href="/static/norm.css")
+            link(rel="stylesheet", href="/static/style.css")
+    body
+        .container
+            header
+                h1 #{$title}
+            
+            main
+                block content
+
+            footer
+                p 
+                    | Fork on 
+                    a(href="https://github.com/YarmoM/DicePlease") Github
+                    |  /// No tracking or JS on this website

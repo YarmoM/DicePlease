@@ -1,2 +1,12 @@
-h1=$title
-p Hellowwww
+extends layout
+
+mixin issue($iss)
+    .issue
+        p ##{$iss->id} - #{$iss->title}
+
+block content
+    p Welcome on the main site.
+    p Current Battlefield V issues:
+    .issues
+        each $iss in $issues
+            +issue($iss)

@@ -1,0 +1,46 @@
+/* General */
+* {
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: hsl(209, 21%, 12%);
+    color: #fff;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    background-color: hsl(209, 21%, 20%);
+}
+header {
+    background-color: hsl(27, 100%, 48%);
+    padding: 8px 16px;
+}
+main {
+    padding: 8px 16px;
+}
+footer {
+    padding: 8px 16px;
+    border-top: 4px solid hsl(209, 21%, 12%);
+}
+.issue {
+    margin: 0;
+    padding: 8px;
+    border-left: 4px solid hsl(209, 21%, 28%);
+}
+.issue:hover {
+    background-color: hsl(209, 21%, 28%);
+}
+.issue p {
+    margin: 0;
+}
+
+/* Typography */
+a {
+    color: hsl(27, 100%, 48%);
+}
