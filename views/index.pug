@@ -2,7 +2,7 @@ extends layout
 
 mixin issue($iss)
     .issue
-        p ##{$iss->id} - #{$iss->title}
+        p ##{$iss["id"]} - #{$iss["title"]}
 
 block content
     p Welcome on the main site.

@@ -1,15 +1,13 @@
 <?php
 
 include_once __DIR__ . '/vendor/autoload.php';
+use Pagerange\Markdown\MetaParsedown;
+include 'functions.php';
 
 $variables = [
     'title' => 'Dice Please',
-    'issues' => array()
+    'issues' => getIssues()
 ];
-
-$variables['issues'][1] = (object) ['id' => 1, 'title' => 'Test', 'added' => '2020-01-13'];
-$variables['issues'][2] = (object) ['id' => 2, 'title' => 'Testing', 'added' => '2020-01-13'];
-$variables['issues'][3] = (object) ['id' => 3, 'title' => 'Testable', 'added' => '2020-01-13'];
 
 $options = [
     'paths' => [
