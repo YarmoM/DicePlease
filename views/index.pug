@@ -5,10 +5,32 @@ mixin issue($iss)
         .issue__status(data-status=$iss['status'])
         .issue__content
             h4 #{$iss['title']}
-            p ##{$iss['id']} - #{$iss['title']}
+            p
+                | ##{$iss['id']}
+                |  - #{$iss['game_expanded']}
 
 block content
-    p Battlefield issues:
+    p An open-source community-driven bug tracker for Battlefield games
+    form#search
+        .input
+            label(for="issue_status") Status:
+            select#issue_status
+                option(value="all") any
+                option(value="open", selected) open
+                option(value="closed") closed
+        .input
+            label(for="issue_type") Type:
+            select#issue_type
+                option(value="all", selected) all
+                option(value="bug") bug
+                option(value="annoyance") annoyance
+        .input
+            label(for="issue_game") Game:
+            select#issue_game
+                option(value="all") all
+                option(value="bfv", selected) Battlefield V
+                option(value="bf1") Battlefield 1
+
     .issues
         each $iss in $issues
             +issue($iss)

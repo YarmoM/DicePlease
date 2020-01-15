@@ -15,17 +15,32 @@ function getIssues() {
         if (($file == '.') || ($file == '..')) {
             continue;
         }
-    
+        
         $content = file_get_contents('issues/' . $file);
         $meta = $mp->meta($content);
         $id = intval(substr($file, 0, -3));
-
+        
         $iss = array("id" => $id,
                     "title" => $meta["title"],
                     "status" => $meta["status"],
+                    "type" => $meta["type"],
+                    "game" => $meta["game"],
                     "content" => $mp->text($content));
+        
+        switch ($iss['game']) {
+            case 'bfv':
+                $iss['game_expanded'] = 'Battlefield V';
+                break;
+            case 'bf1':
+                $iss['game_expanded'] = 'Battlefield 1';
+                break;
+            default:
+                $iss['game_expanded'] = '-';
+        }
         $issues[] = $iss;
     }
+
+    $issues = array_reverse($issues);
 
     return $issues;
 }

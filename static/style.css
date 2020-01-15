@@ -22,11 +22,24 @@ header {
     padding: 8px 16px;
 }
 main {
-    padding: 8px 16px;
+    padding: 8px 16px 24px;
 }
 footer {
     padding: 8px 16px;
     border-top: 4px solid hsl(209, 21%, 12%);
+}
+form {
+    display: flex;
+
+}
+form#search {
+    margin-top: 48px;
+}
+.input {
+    flex: 1;
+}
+label {
+    margin-right: 8px;
 }
 .issues {
     border-top: 2px solid hsl(209, 21%, 28%);
@@ -61,6 +74,9 @@ footer {
 }
 .issue__status[data-status="closed"] {
     background-color: red;
+}
+footer {
+    text-align: center;
 }
 
 /* Typography */
