@@ -8,28 +8,31 @@ mixin issue($iss)
             p
                 | ##{$iss['id']}
                 |  - #{$iss['game_expanded']}
+                |  - #{$iss['type']}
 
 block content
     p An open-source community-driven bug tracker for Battlefield games
-    form#search
+    form(action="/search.php", method="post")#search
         .input
             label(for="issue_status") Status:
-            select#issue_status
-                option(value="all") any
-                option(value="open", selected) open
-                option(value="closed") closed
+            select#issue_status(name="issue_status")
+                option(value="all" selected=$params['status'] == 'all') all
+                option(value="open" selected=$params['status'] == 'open') open
+                option(value="closed" selected=$params['status'] == 'closed') closed
         .input
             label(for="issue_type") Type:
-            select#issue_type
-                option(value="all", selected) all
-                option(value="bug") bug
-                option(value="annoyance") annoyance
+            select#issue_type(name="issue_type")
+                option(value="all" selected=$params['type'] == 'all') all
+                option(value="bug" selected=$params['type'] == 'bug') bug
+                option(value="annoyance" selected=$params['type'] == 'annoyance') annoyance
         .input
             label(for="issue_game") Game:
-            select#issue_game
-                option(value="all") all
-                option(value="bfv", selected) Battlefield V
-                option(value="bf1") Battlefield 1
+            select#issue_game(name="issue_game")
+                option(value="all" selected=$params['game'] == 'all') all
+                option(value="bfv" selected=$params['game'] == 'bfv') Battlefield V
+                option(value="bf1" selected=$params['game'] == 'bf1') Battlefield 1
+        .input
+            button(type="submit") Search
 
     .issues
         each $iss in $issues

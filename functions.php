@@ -1,9 +1,10 @@
 <?php
 
+include_once __DIR__ . '/constants.php';
 include_once __DIR__ . '/vendor/autoload.php';
 use Pagerange\Markdown\MetaParsedown;
 
-function getIssues() {
+function getIssues($params) {
     $Parsedown = new Parsedown();
     $mp = new MetaParsedown();
     
@@ -19,7 +20,7 @@ function getIssues() {
         $content = file_get_contents('issues/' . $file);
         $meta = $mp->meta($content);
         $id = intval(substr($file, 0, -3));
-        
+
         $iss = array("id" => $id,
                     "title" => $meta["title"],
                     "status" => $meta["status"],
@@ -37,6 +38,17 @@ function getIssues() {
             default:
                 $iss['game_expanded'] = '-';
         }
+
+        if ($params['status'] != 'all' && $iss['status'] != $params['status']) {
+            continue;
+        }
+        if ($params['type'] != 'all' && $iss['type'] != $params['type']) {
+            continue;
+        }
+        if ($params['game'] != 'all' && $iss['game'] != $params['game']) {
+            continue;
+        }
+
         $issues[] = $iss;
     }
 
