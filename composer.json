@@ -3,7 +3,7 @@
     "description": "Dice Please",
     "type": "project",
     "require": {
-        "phug/phug": "^1.4",
+        "phug/phug": "^1.5",
         "altorouter/altorouter": "1.1.0",
         "erusev/parsedown": "^1.7",
         "pagerange/metaparsedown": "^1.0"

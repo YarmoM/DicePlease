@@ -28,10 +28,17 @@ footer {
     padding: 8px 16px;
     border-top: 4px solid hsl(209, 21%, 12%);
 }
+.issues {
+    border-top: 2px solid hsl(209, 21%, 28%);
+}
 .issue {
+    display: flex;
+    align-items: center;
     margin: 0;
-    padding: 8px;
-    border-left: 4px solid hsl(209, 21%, 28%);
+    padding: 8px 16px;
+    border-left: 2px solid hsl(209, 21%, 28%);
+    border-bottom: 2px solid hsl(209, 21%, 28%);
+    border-right: 2px solid hsl(209, 21%, 28%);
 }
 .issue:hover {
     background-color: hsl(209, 21%, 28%);
@@ -39,8 +46,27 @@ footer {
 .issue p {
     margin: 0;
 }
+.issue__content {
+    flex: 1;
+}
+.issue__status {
+    width: 16px;
+    height: 16px;
+    margin: 0 12px 0 0;
+    border: 2px solid hsl(209, 21%, 28%);
+    border-radius: 100%;
+}
+.issue__status[data-status="open"] {
+    background-color: green;
+}
+.issue__status[data-status="closed"] {
+    background-color: red;
+}
 
 /* Typography */
+h4 {
+    margin: 0 0 4px;
+}
 a {
     color: hsl(27, 100%, 48%);
 }

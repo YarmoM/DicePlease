@@ -2,11 +2,13 @@ extends layout
 
 mixin issue($iss)
     .issue
-        p ##{$iss["id"]} - #{$iss["title"]}
+        .issue__status(data-status=$iss['status'])
+        .issue__content
+            h4 #{$iss['title']}
+            p ##{$iss['id']} - #{$iss['title']}
 
 block content
-    p Welcome on the main site.
-    p Current Battlefield V issues:
+    p Battlefield issues:
     .issues
         each $iss in $issues
             +issue($iss)
