@@ -18,9 +18,9 @@ $match = $router->match();
 
 // Search params
 $params = array();
-$params['status'] = $_GET['status'] ? $_GET['status'] : 'open';
-$params['type'] = $_GET['type'] ? $_GET['type'] : 'all';
-$params['game'] = $_GET['game'] ? $_GET['game'] : 'bfv';
+$params['status'] = isset($_GET['status']) ? $_GET['status'] : 'open';
+$params['type'] = isset($_GET['type']) ? $_GET['type'] : 'all';
+$params['game'] = isset($_GET['game']) ? $_GET['game'] : 'bfv';
 
 // Template engine settings and variables
 $options = [
