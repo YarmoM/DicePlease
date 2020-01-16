@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    p An open-source community-driven bug tracker for Battlefield games
+    h2 Issue ##{$issues[0]['id']}
+    h3 Details
+    p
+        | Status: #{$issues[0]['status']} <br>
+        | Type: #{$issues[0]['type']} <br>
+        | Game: #{$issues[0]['game']}
+
+    h3 Description
+    p !{$issues[0]['content']}
