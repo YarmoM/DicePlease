@@ -1,9 +1,8 @@
 <?php
 
-include_once __DIR__ . '/constants.php';
+include __DIR__ . '/constants.php';
 include_once __DIR__ . '/vendor/autoload.php';
 use Pagerange\Markdown\MetaParsedown;
-use Ublaboo\DataGrid\DataGrid;
 include 'functions.php';
 
 // Init router
@@ -28,6 +27,13 @@ $options = [
     'paths' => [
         'views/',
     ],
+    'enable_profiler' => false,
+    'profiler' => [
+        'time_precision' => 3,
+        'line_height'    => 30,
+        'display'        => true,
+        'log'            => false,
+    ],  
 ];
 $variables = [
     'title' => 'Dice Please',

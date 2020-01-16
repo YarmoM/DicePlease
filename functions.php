@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/constants.php';
+include __DIR__ . '/constants.php';
 include_once __DIR__ . '/vendor/autoload.php';
 use Pagerange\Markdown\MetaParsedown;
 
@@ -51,7 +51,7 @@ function getIssues($params) {
         if (isset($params['game']) && $params['game'] != 'all' && $iss['game'] != $params['game']) {
             continue;
         }
-        if (isset($params['query']) && $params['query'] != $DEF_QUERY && strpos(strtolower($iss['title']), strtolower($params['query'])) === FALSE) {
+        if (isset($params['query']) && $params['query'] != '' && strpos(strtolower($iss['title']), strtolower($params['query'])) === FALSE) {
             continue;
         }
 
