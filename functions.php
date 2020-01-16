@@ -38,17 +38,20 @@ function getIssues($params) {
             default:
                 $iss['game_expanded'] = '-';
         }
-
-        if ($params['status'] != 'all' && $iss['status'] != $params['status']) {
+        
+        if (isset($params['id']) && $params['id'] != 'all' && $iss['id'] != $params['id']) {
             continue;
         }
-        if ($params['type'] != 'all' && $iss['type'] != $params['type']) {
+        if (isset($params['status']) && $params['status'] != 'all' && $iss['status'] != $params['status']) {
             continue;
         }
-        if ($params['game'] != 'all' && $iss['game'] != $params['game']) {
+        if (isset($params['type']) && $params['type'] != 'all' && $iss['type'] != $params['type']) {
             continue;
         }
-        if ($params['query'] != $DEF_QUERY && strpos(strtolower($iss['title']), strtolower($params['query'])) === FALSE) {
+        if (isset($params['game']) && $params['game'] != 'all' && $iss['game'] != $params['game']) {
+            continue;
+        }
+        if (isset($params['query']) && $params['query'] != $DEF_QUERY && strpos(strtolower($iss['title']), strtolower($params['query'])) === FALSE) {
             continue;
         }
 

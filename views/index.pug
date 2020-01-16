@@ -4,7 +4,7 @@ mixin issue($iss)
     .issue
         .issue__status(data-status=$iss['status'])
         .issue__content
-            h4 #{$iss['title']}
+            a(href="/{$iss['id']}/") #{$iss['title']}
             p
                 | ##{$iss['id']}
                 |  - #{$iss['game_expanded']}

@@ -6,12 +6,12 @@ use Pagerange\Markdown\MetaParsedown;
 use Ublaboo\DataGrid\DataGrid;
 include 'functions.php';
 
-
 // Init router
 $router = new AltoRouter();
 
 // Router mapping
 $router->map('GET', '/', function() {}, 'home');
+$router->map('GET', '/[i:id]/', function() {}, 'issue');
 
 // Router matching
 $match = $router->match();
@@ -31,15 +31,25 @@ $options = [
 ];
 $variables = [
     'title' => 'Dice Please',
-    'issues' => getIssues($params),
     'params' => $params
 ];
+// If we are dealing with an issue
+if ($match['name'] == 'issue') {
+    $variables['params'] = array();
+    $variables['params']['id'] = $match['params']['id'];
+}
+// Get the issues
+$variables['issues'] = getIssues($variables['params']);
 
 // Render the appropriate route
 if(is_array($match) && is_callable($match['target'])) {
     switch ($match['name']) {
         case 'home':
             Phug::displayFile('index', $variables, $options);
+            break;
+        
+        case 'issue':
+            Phug::displayFile('issue', $variables, $options);
             break;
         
         default:

@@ -87,9 +87,12 @@ footer {
 }
 
 /* Typography */
-h4 {
-    margin: 0 0 4px;
-}
 a {
     color: hsl(27, 100%, 48%);
+}
+.issue a {
+    display: block;
+    margin: 0 0 4px;
+    color: #fff;
+    font-weight: bold;
 }
