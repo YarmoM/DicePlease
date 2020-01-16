@@ -70,10 +70,10 @@ label {
     border-radius: 100%;
 }
 .issue__status[data-status="open"] {
-    background-color: green;
+    background-color: hsl(120, 84%, 41%);
 }
 .issue__status[data-status="closed"] {
-    background-color: red;
+    background-color: hsl(0, 85%, 55%);
 }
 footer {
     text-align: center;
