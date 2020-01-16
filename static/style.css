@@ -36,10 +36,17 @@ form#search {
     margin-top: 48px;
 }
 .input {
+    display: flex;
     flex: 1;
+    flex-direction: column;
+}
+.input input, .input select {
+    font-size: 0.8rem;
+    width: 80%;
+    padding: 2px;
 }
 label {
-    margin-right: 8px;
+    margin: 0 8px 4px 0;
 }
 .issues {
     border-top: 2px solid hsl(209, 21%, 28%);

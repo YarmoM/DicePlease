@@ -48,6 +48,9 @@ function getIssues($params) {
         if ($params['game'] != 'all' && $iss['game'] != $params['game']) {
             continue;
         }
+        if ($params['query'] != $DEF_QUERY && strpos(strtolower($iss['title']), strtolower($params['query'])) === FALSE) {
+            continue;
+        }
 
         $issues[] = $iss;
     }

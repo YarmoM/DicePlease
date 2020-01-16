@@ -13,6 +13,9 @@ if (isset($_POST['issue_type']) && $_POST['issue_type'] != $DEF_TYPE) {
 if (isset($_POST['issue_game']) && $_POST['issue_game'] != $DEF_GAME) {
     $params .= 'game='.$_POST['issue_game'].'&';
 }
+if (isset($_POST['issue_query']) && $_POST['issue_query'] != $DEF_QUERY) {
+    $params .= 'query='.$_POST['issue_query'].'&';
+}
 
 if (strlen($params) > 0) {
     $params = '?' . substr($params, 0, -1);

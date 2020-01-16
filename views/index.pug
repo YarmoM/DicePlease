@@ -33,6 +33,9 @@ block content
                 option(value="bfv" selected=$params['game'] == 'bfv') Battlefield V
                 option(value="bf1" selected=$params['game'] == 'bf1') Battlefield 1
         .input
+            label(for="issue_query") Search:
+            input#issue_query(type="search" name="issue_query" placeholder="Search..." value="{$params['query']}")
+        .input
             button(type="submit") Search
 
     .issues
