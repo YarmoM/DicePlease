@@ -28,12 +28,10 @@ footer {
     padding: 8px 16px;
     border-top: 4px solid hsl(209, 21%, 12%);
 }
-form {
+#search {
     display: flex;
-
-}
-form#search {
     margin-top: 48px;
+    margin-bottom: 16px;
 }
 .input {
     display: flex;

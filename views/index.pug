@@ -1,7 +1,7 @@
 extends layout
 
 mixin issue($iss)
-    .issue
+    .issue(data-status=$iss['status'] data-game=$iss['game'] data-type=$iss['type'])
         .issue__status(data-status=$iss['status'])
         .issue__content
             a(href="/{$iss['id']}/") #{$iss['title']}
@@ -12,31 +12,7 @@ mixin issue($iss)
 
 block content
     p An open-source community-driven bug tracker for Battlefield games
-    form(action="/search.php", method="post")#search
-        .input
-            label(for="issue_status") Status:
-            select#issue_status(name="issue_status")
-                option(value="all" selected=$params['status'] == 'all') all
-                option(value="open" selected=$params['status'] == 'open') open
-                option(value="closed" selected=$params['status'] == 'closed') closed
-        .input
-            label(for="issue_type") Type:
-            select#issue_type(name="issue_type")
-                option(value="all" selected=$params['type'] == 'all') all
-                option(value="bug" selected=$params['type'] == 'bug') bug
-                option(value="annoyance" selected=$params['type'] == 'annoyance') annoyance
-                option(value="comingsoon" selected=$params['type'] == 'comingsoon') comingsoon
-        .input
-            label(for="issue_game") Game:
-            select#issue_game(name="issue_game")
-                option(value="all" selected=$params['game'] == 'all') all
-                option(value="bfv" selected=$params['game'] == 'bfv') Battlefield V
-                option(value="bf1" selected=$params['game'] == 'bf1') Battlefield 1
-        .input
-            label(for="issue_query") Search:
-            input#issue_query(type="search" name="issue_query" placeholder="Search..." value="{$params['query']}")
-        .input
-            button(type="submit") Search
+    include template_search.html
 
     .issues
         each $iss in $issues
